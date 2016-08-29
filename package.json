@@ -1,6 +1,6 @@
 {
-    "name": "RSPG - Random String/Password Generator",
-    "displayName": "random-string-password-generator",
+    "name": "random-string-password-generator",
+    "displayName": "RSPG - Random String or Password Generator",
     "description": "Generate random strings of variable length to use as password or secret keys",
     "version": "0.0.1",
     "publisher": "bibhasdn",
