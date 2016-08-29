@@ -1,0 +1,41 @@
+{
+    "name": "RSPG - Random String/Password Generator",
+    "displayName": "random-string-password-generator",
+    "description": "Generate random strings of variable length to use as password or secret keys",
+    "version": "0.0.1",
+    "publisher": "bibhasdn",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:rspg.variableLength",
+        "onCommand:rspg.lowPassword",
+        "onCommand:rspg.mediumPassword",
+        "onCommand:rspg.highPassword"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [{
+            "command": "rspg.variableLength",
+            "title": "RSPG - Generate random string/password"
+        }, {
+            "command": "rspg.lowPassword",
+            "title": "RSPG - Generate weak password"
+        }, {
+            "command": "rspg.mediumPassword",
+            "title": "RSPG - Generate medium strength password"
+        }, {
+            "command": "rspg.highPassword",
+            "title": "RSPG - Generate strong password"
+        }]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "vscode": "^0.11.0"
+    }
+}
