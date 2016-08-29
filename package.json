@@ -2,7 +2,7 @@
     "name": "random-string-password-generator",
     "displayName": "RSPG - Random String or Password Generator",
     "description": "Generate random strings of variable length to use as password or secret keys",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "bibhasdn",
     "engines": {
         "vscode": "^1.0.0"
