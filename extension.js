@@ -9,7 +9,7 @@ function activate(context) {
             'value': defaultLength
         }).then(function(length) {
             if (length === undefined) {
-                vscode.window.showErrorMessage('Please input a positive integer number.')
+                // Input box was canceled
                 return;
             }
 
@@ -32,6 +32,11 @@ function activate(context) {
                     'detail': 'high'
                 }
             ]).then(function(item) {
+                if (item === undefined) {
+                    // Quick pick was canceled
+                    return;
+                }
+
                 var strength = item.detail;
                 var generated_string = generateRandomString(length, strength);
                 // vscode.window.showInformationMessage('Generated string is: ' + generated_string);
