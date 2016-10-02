@@ -1,15 +1,21 @@
 var vscode = require('vscode');
 function activate(context) {
     var disposableVariable = vscode.commands.registerCommand('rspg.variableLength', function () {
+        var defaultLength = 12;
         vscode.window.showInputBox({
             'validateInput': validateInputNumber,
             'placeHolder': 'Enter length',
             'prompt': 'Enter desired string/password length',
-            'value': '12'
+            'value': defaultLength
         }).then(function(length) {
             if (length === undefined) {
                 vscode.window.showErrorMessage('Please input a positive integer number.')
                 return;
+            }
+
+            if (length === ''){
+                // Default value used
+                length = defaultLength;
             }
 
             vscode.window.showQuickPick([
