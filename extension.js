@@ -2,7 +2,7 @@ var vscode = require('vscode');
 function activate(context) {
     var disposableVariable = vscode.commands.registerCommand('rspg.variableLength', function () {
         vscode.window.showInputBox({
-            'validateInput': 'validateInputNumber',
+            'validateInput': validateInputNumber,
             'placeHolder': 'Enter length',
             'prompt': 'Enter desired string/password length',
             'value': '12'
@@ -105,7 +105,6 @@ function generateRandomString(length, strength) {
 }
 
 function validateInputNumber(input) {
-    console.log('foo');
     if (isNormalInteger(input)) {
         return '';
     } else {
@@ -115,5 +114,5 @@ function validateInputNumber(input) {
 
 function isNormalInteger(str) {
     var n = ~~Number(str);
-    return String(n) === str && n >= 0;
+    return String(n) === str && n > 0;
 }
