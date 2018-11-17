@@ -1,10 +1,14 @@
 {
     "name": "random-string-password-generator",
-    "displayName": "RSPG - Random String or Password Generator",
+    "displayName": "Random String Generator",
     "description": "Generate random strings of variable length to use as password or secret keys",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publisher": "bibhasdn",
     "icon": "images/logo_128.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/iambibhas/vscode-random-string-password-generator"
+    },
     "bugs": {
         "url": "https://github.com/iambibhas/vscode-random-string-password-generator/issues",
         "email": "me@bibhas.in"
@@ -25,16 +29,16 @@
     "contributes": {
         "commands": [{
             "command": "rspg.variableLength",
-            "title": "RSPG - Generate random string/password"
+            "title": "Generate random string/password"
         }, {
             "command": "rspg.lowPassword",
-            "title": "RSPG - Generate weak password"
+            "title": "Generate weak password"
         }, {
             "command": "rspg.mediumPassword",
-            "title": "RSPG - Generate medium strength password"
+            "title": "Generate medium strength password"
         }, {
             "command": "rspg.highPassword",
-            "title": "RSPG - Generate strong password"
+            "title": "Generate strong password"
         }]
     },
     "scripts": {
