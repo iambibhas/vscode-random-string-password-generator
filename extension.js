@@ -1,15 +1,21 @@
 var vscode = require('vscode');
 function activate(context) {
     var disposableVariable = vscode.commands.registerCommand('rspg.variableLength', function () {
+        var defaultLength = 12;
         vscode.window.showInputBox({
-            'validateInput': 'validateInputNumber',
+            'validateInput': validateInputNumber,
             'placeHolder': 'Enter length',
             'prompt': 'Enter desired string/password length',
-            'value': '12'
+            'value': defaultLength
         }).then(function(length) {
             if (length === undefined) {
-                vscode.window.showErrorMessage('Please input a positive integer number.')
+                // Input box was canceled
                 return;
+            }
+
+            if (length === ''){
+                // Default value used
+                length = defaultLength;
             }
 
             vscode.window.showQuickPick([
@@ -26,6 +32,11 @@ function activate(context) {
                     'detail': 'high'
                 }
             ]).then(function(item) {
+                if (item === undefined) {
+                    // Quick pick was canceled
+                    return;
+                }
+
                 var strength = item.detail;
                 var generated_string = generateRandomString(length, strength);
                 // vscode.window.showInformationMessage('Generated string is: ' + generated_string);
@@ -105,7 +116,6 @@ function generateRandomString(length, strength) {
 }
 
 function validateInputNumber(input) {
-    console.log('foo');
     if (isNormalInteger(input)) {
         return '';
     } else {
@@ -115,5 +125,5 @@ function validateInputNumber(input) {
 
 function isNormalInteger(str) {
     var n = ~~Number(str);
-    return String(n) === str && n >= 0;
+    return String(n) === str && n > 0;
 }
